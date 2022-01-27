@@ -42,4 +42,23 @@ export const GlobalStyles = createGlobalStyle`
       height: 230px; 
     }
   }
+  .tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:15px 12px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-0lax{text-align: center; 
+  vertical-align: middle;
+  border: 2px solid #fff;
+  color: #fff;
+  font-family: 'KanitMedium';
+  font-size: 17px;}
+  @media screen and (max-width: 600px) {
+    table {
+      border-collapse: collapse;
+      border: 0;
+    }
+  
+  }
+  
 `;
