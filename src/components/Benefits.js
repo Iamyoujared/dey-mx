@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { fadeInLeftAnimation } from "../utils/animations";
-import backgroundBenefits from "../assets/images/background-benefits.svg";
-import ScrollAnimation from "react-animate-on-scroll";
-import Slider from "react-slick";
+import Image4 from "../assets/images/image4.jpg";
+import AppStoreLogo from "../assets/images/icono-app-store.png";
+import GooglePlayLogo from "../assets/images/icono-google-play.png";
 
-const Content = styled.div`
+const Wrapper = styled.div`
   padding: 100px 200px;
-  background-image: url(${backgroundBenefits});
+  height: 70vh;
+  background-image: url(${Image4});
   background-repeat: no-repeat;
   background-size: cover;
   & h2 {
@@ -18,13 +19,17 @@ const Content = styled.div`
     font-family: "KanitSemiBold";
   }
   & h1 {
-    text-align: center;
+    margin-bottom: 0;
+    text-align: left;
     color: #fff;
-    font-size: 35px;
+    font-size: 55px;
     animation: 0.5s ease-out ${fadeInLeftAnimation};
     font-family: KanitRegular;
     font-weight: 100;
-    margin-bottom: 0;
+    line-height: 55px;
+    & span {
+      font-family: KanitSemiBold;
+    }
   }
   & div {
     text-align: center;
@@ -37,9 +42,43 @@ const Content = styled.div`
     height: auto;
     grid-template-columns: 100%;
     padding: 40px 40px 60px;
+    & h1 {
+      font-size: 39px;
+    }
     & div {
       height: 270px;
     }
+  }
+`;
+
+const Content = styled.div`
+  height: 70vh;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  @media screen and (max-width: 1024px) {
+    grid-template-columns: 100%;
+    height: auto;
+  }
+`;
+
+const LogosApps = styled.div`
+  margin: 70px auto 0;
+  & img {
+    display: block;
+    &:first-child {
+      margin-bottom: 20px;
+      @media screen and (max-width: 480px) {
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+    }
+    width: 170px;
+  }
+  @media screen and (max-width: 1024px) {
+    margin: 20px auto 0;
   }
 `;
 
@@ -52,38 +91,22 @@ export const Benefits = () => {
     }
   }, [renderText]);
 
-  var settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: false,
-  };
-
   return (
-    <ScrollAnimation animateIn="fadeIn" animateOut="fadeOut">
-      <div id="benefits">
+    <div id="benefits">
+      <Wrapper>
         <Content>
           <div>
-            <h2>Beneficios</h2>
-            <Slider {...settings}>
-              <div>
-                <h1>Adiós al estrés financiero</h1>
-              </div>
-              <div>
-                <h1>Retira de tu salario cómo y cuándo quieras</h1>
-              </div>
-              <div>
-                <h1>Genera historial crediticio</h1>
-              </div>
-              <div>
-                <h1>Obten liquidez inmediata disponible 24/7</h1>
-              </div>
-            </Slider>
+            <h1>
+              Libertad para ti. <br /> <span>Libertad para</span> <br />{" "}
+              <span>tu dinero</span>
+            </h1>
           </div>
+          <LogosApps>
+            <img src={AppStoreLogo} alt="AppStoreLogo" />
+            <img src={GooglePlayLogo} alt="GooglePlayLogo" />
+          </LogosApps>
         </Content>
-      </div>
-    </ScrollAnimation>
+      </Wrapper>
+    </div>
   );
 };

@@ -1,22 +1,23 @@
 import React from "react";
 import styled from "styled-components";
 import { fadeInLeftAnimation } from "../utils/animations";
-import CircleWhiteLeft from "../assets/images/text-dey.svg";
-import Banner1 from "../assets/images/banner2.png";
+import Image1 from "../assets/images/image1.png";
 import Logo from "../assets/images/Logo.svg";
 import { Link } from "react-scroll";
 
 const Wrapper = styled.div`
   position: relative;
   height: 80vh;
-  padding: 40px 80px;
-  background: #f8d05d;
+  padding: 80px 140px 40px;
+  background-image: url(${Image1});
+  background-size: cover;
+  background-position: bottom;
   @media screen and (max-width: 1023px) {
     height: auto;
-    padding: 40px 40px 0;
+    padding: 40px 40px;
   }
   @media screen and (min-width: 1023px) {
-    height: 100vh;
+    height: 85vh;
   }
 `;
 
@@ -34,33 +35,34 @@ const Content = styled.div`
 `;
 
 const InfoLeft = styled.div`
-  display: flex;
-  align-items: flex-end;
+  text-align: right;
   animation: 0.5s ease-out ${fadeInLeftAnimation};
   & button {
     padding: 12px 40px;
     font-size: 18px;
     font-family: "KanitMedium";
-    background: #f4882f;
-    color: #fff;
-    border-radius: 6px;
+    background: #fff;
+    color: #ecbe35;
+    border-radius: 50px;
     border: none;
     cursor: pointer;
     &:first-child {
       margin-right: 10px;
     }
-    &:hover {
-      background: #fd7d14;
-    }
+    // &:hover {
+    //   background: #fd7d14;
+    // }
   }
   & h1 {
+    margin: 0;
     color: #fff;
-    line-height: 50px;
+    // line-height: 50px;
     font-size: 4.8em;
-    text-align: left;
+    text-align: right;
     font-family: KanitSemiBold;
     line-height: 72px;
     & span {
+      background: #ecbe35;
       font-weight: 100;
       font-family: KanitRegular !important;
     }
@@ -68,7 +70,7 @@ const InfoLeft = styled.div`
   & p {
     color: #fff;
     font-size: 32px;
-    text-align: left;
+    text-align: right;
     font-family: KanitRegular;
     line-height: 35px;
     & b {
@@ -76,11 +78,20 @@ const InfoLeft = styled.div`
     }
   }
   @media screen and (max-width: 420px) {
+    text-align: left;
+    & button {
+      font-size: 15px;
+      &:first-child {
+        margin-bottom: 10px;
+      }
+    }
     & h1 {
-      font-size: 3em;
-      line-height: 50px;
+      font-size: 2em;
+      line-height: 44px;
+      text-align: left;
     }
     & p {
+      text-align: left;
       font-size: 23px;
     }
   }
@@ -95,55 +106,12 @@ const InfoLeft = styled.div`
   }
 `;
 
-const ImageCirlce = styled.img`
-  position: absolute;
-  width: 100px;
-  right: 4em;
-  bottom: 6em;
-  transform: rotate(20deg) scale(8);
-  @media screen and (max-width: 1024px) {
-    display: none;
-  }
-  @media screen and (min-width: 1445px) {
-    transform: rotate(20deg) scale(11);
-    bottom: 10em;
-  }
-`;
-
-const Banner = styled.img`
-  position: absolute;
-  width: 800px;
-  bottom: 0;
-  @media screen and (max-width: 420px) {
-    position: relative;
-    width: 300px;
-    bottom: -4px;
-    margin-top: 2em;
-  }
-  @media screen and (min-width: 428px) and (max-width: 768px) {
-    position: relative;
-    width: 500px;
-    bottom: 0;
-    margin: auto;
-    display: block;
-  }
-  @media screen and (min-width: 769px) and (max-width: 1024px) {
-    position: relative;
-    width: 600px;
-    bottom: 0;
-    margin: auto;
-    display: block;
-  }
-  @media screen and (min-width: 1025px) and (max-width: 1366px) {
-    position: absolute;
-    width: 679px;
-    bottom: 0;
-  }
-  @media screen and (min-width: 1445px) {
-    position: absolute;
-    width: 900px;
-    bottom: 0;
-  }
+const Badge = styled.h1`
+  background: #ecbe35;
+  display: inline-block;
+  border-radius: 50px;
+  padding: 5px 20px;
+  margin-top: 5px !important;
 `;
 
 const LogoTipo = styled.img`
@@ -158,17 +126,17 @@ export const Home = () => {
   return (
     <>
       <Wrapper>
-        <ImageCirlce src={CircleWhiteLeft} alt="CircleWhiteLeft" />
+        {/* <ImageCirlce src={CircleWhiteLeft} alt="CircleWhiteLeft" /> */}
         <Content>
-          <InfoLeft>
+          <div>
             <div>
               <LogoTipo src={Logo} alt="" />
-              <h1>
+              {/* <h1>
                 <span>Tu dinero</span>
                 <br />
                 Tan libre como tú
-              </h1>
-              <p>
+              </h1> */}
+              {/* <p>
                 Para tu <b>empresa</b>, un <b>aliado.</b> <br /> Y para ti, una
                 <b> nueva forma de cobrar.</b>
               </p>
@@ -177,12 +145,27 @@ export const Home = () => {
               </Link>
               <a href="https://app.dey.mx">
                 <button>¡Acceder!</button>
-              </a>
+              </a> */}
             </div>
-          </InfoLeft>
-          <div>
-            <Banner src={Banner1} alt="" />
           </div>
+          <InfoLeft>
+            <h1>
+              Tu dinero tan
+              <br />
+            </h1>
+            <Badge>libre como tú</Badge>
+            <p>
+              Para tu <b>empresa</b>, un <b>aliado.</b> <br /> Y para ti, una
+              <b> nueva forma de cobrar.</b>
+            </p>
+            <Link to="form" spy={true} smooth={true}>
+              <button>¡Lo quiero!</button>
+            </Link>
+            <a href="https://app.dey.mx">
+              <button>¡Acceder!</button>
+            </a>
+            {/* <Banner src={Banner1} alt="" /> */}
+          </InfoLeft>
         </Content>
       </Wrapper>
     </>

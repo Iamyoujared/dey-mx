@@ -1,9 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import AppStoreLogo from "../assets/images/app-store-logo.png";
-import GooglePlayLogo from "../assets/images/google-play-logo.png";
 import BolsaLogo from "../assets/images/logo-bolsa1.svg";
-import BuroLogo from "../assets/images/logo-buro.png";
+import BuroLogo from "../assets/images/cdc.png";
 import CondusefLogo from "../assets/images/logo-condusef.png";
 import PrivatePdf from "../assets/images/privacidad.pdf";
 import HubspotForm from "react-hubspot-form";
@@ -15,8 +13,6 @@ import Instagram from "../assets/images/instagram.svg";
 import Twitter from "../assets/images/twitter.svg";
 
 const Content = styled.div`
-  padding: 100px 200px;
-  height: 250px;
   text-align: center;
   & h1 {
     font-family: KanitRegular;
@@ -28,7 +24,7 @@ const Content = styled.div`
   @media screen and (max-width: 1024px) {
     height: auto;
     grid-template-columns: 100%;
-    padding: 40px;
+    padding: 40px 0;
   }
 `;
 
@@ -46,27 +42,19 @@ const FooterBottom = styled.div`
     height: 60px;
     object-fit: cover;
   }
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 720px) {
     padding: 40px;
-  }
-`;
-
-const LogosApps = styled.div`
-  margin: 70px auto 0;
-  & img {
-    &:first-child {
-      margin-right: 20px;
-      @media screen and (max-width: 480px) {
-        margin-right: 0;
-        margin-bottom: 10px;
+    & img {
+      &:not(:last-child) {
+        margin-right: 10px;
       }
+      height: 40px;
     }
-    width: 170px;
   }
 `;
 
 const FormHP = styled.div`
-  margin: 0 250px 30px;
+  margin: 70px 250px 30px;
   padding: 30px;
   border-radius: 4px;
   box-shadow: 0 6px 24px rgb(0 0 0 / 10%);
@@ -103,16 +91,7 @@ const ListSocialMedia = styled.ul`
 
 export const Footer = () => {
   return (
-    <>
-      <Content>
-        <h1>
-          Libertad para ti. <span>Libertad para tu dinero</span>
-        </h1>
-        <LogosApps>
-          <img src={AppStoreLogo} alt="AppStoreLogo" />
-          <img src={GooglePlayLogo} alt="GooglePlayLogo" />
-        </LogosApps>
-      </Content>
+    <Content>
       <FormHP id="form">
         <HubspotForm
           portalId="21041249"
@@ -177,6 +156,6 @@ export const Footer = () => {
         <img src={BuroLogo} alt="BuroLogo" />
         <img src={CondusefLogo} alt="CondusefLogo" />
       </FooterBottom>
-    </>
+    </Content>
   );
 };
